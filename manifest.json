@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "复刻1.16之前和早期1.21的翻译错误",
+        "name": "微软式中文",
+        "uuid": "abd82e79-1383-4248-b1bb-c4144fc4d016",
+        "version": [0, 0, 1],
+        "min_engine_version": [ 1, 21, 70 ]
+    },
+    "modules": [
+        {
+            "description": "复刻1.16之前和早期1.21的翻译错误",
+            "type": "resources",
+            "uuid": "63584997-58cb-42ac-acc6-d90f637071fa",
+            "version": [0, 0, 1]
+        }
+    ]
+}
