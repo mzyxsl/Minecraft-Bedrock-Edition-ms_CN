@@ -1,0 +1,20 @@
+name: 打包插件并发布到Releases
+
+# 检测只有主分支的push操作会触发该工作流
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # 允许手动触发该工作流
+
+jobs:
+  build:
+    name: 打包工作
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 克隆代码
+        run: |
+          git clone https://github.com/mzyxsl/Minecraft-Bedrock-Edition-ms_CN.git
+          zip -r ms_CN.zip Minecraft-Bedrock-Edition-ms_CN
+          cp ms_CN.zip ms_CN.mcpack
