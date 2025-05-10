@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: 打包工作
+    - name: 打包工作
     runs-on: ubuntu-latest
 
     steps:
@@ -18,11 +18,10 @@ jobs:
           git clone https://github.com/mzyxsl/Minecraft-Bedrock-Edition-ms_CN.git
           zip -r ms_CN.zip Minecraft-Bedrock-Edition-ms_CN
           cp ms_CN.zip ms_CN.mcpack
-
--name: create github release
-    id: new_release
-    uses: softprops/action-gh-release@v2.0.8
-    with:
-      name: latest
-      make_latest: true
-      files: ms_CN.mcpack
+      -name: create github release
+         id: new_release
+         uses: softprops/action-gh-release@v2.0.8
+       with:
+            name: latest
+            make_latest: true
+            files: ms_CN.mcpack
