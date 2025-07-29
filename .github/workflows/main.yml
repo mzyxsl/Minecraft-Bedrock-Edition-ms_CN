@@ -13,11 +13,18 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Remove .git folder
+      run: rm -rf ./.git
+
+    - name: Remove .github folder
+      run: rm -rf ./.github
+
     - name: zip Minecraft-Bedrock-Edition-ms_CN
       run: zip -r Minecraft-Bedrock-Edition-ms_CN.zip ./
 
     - name: mv .pack
       run: mv Minecraft-Bedrock-Edition-ms_CN.zip Minecraft-Bedrock-Edition-ms_CN.mcpack
+      
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
