@@ -20,7 +20,7 @@ jobs:
       run: rm -rf ./.github
 
     - name: Remove README.md
-      run: README.md
+      run: rm ./README.md
 
     - name: Pack Minecraft-Bedrock-Edition-ms_CN.zip
       run: zip -r Minecraft-Bedrock-Edition-ms_CN.zip ./
