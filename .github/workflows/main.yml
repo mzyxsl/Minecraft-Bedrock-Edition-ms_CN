@@ -19,13 +19,16 @@ jobs:
     - name: Remove .github folder
       run: rm -rf ./.github
 
-    - name: zip Minecraft-Bedrock-Edition-ms_CN
+    - name: Remove README.md
+      run: README.md
+
+    - name: Pack Minecraft-Bedrock-Edition-ms_CN.zip
       run: zip -r Minecraft-Bedrock-Edition-ms_CN.zip ./
 
-    - name: mv .pack
+    - name: Rename Minecraft-Bedrock-Edition-ms_CN.mcpack
       run: mv Minecraft-Bedrock-Edition-ms_CN.zip Minecraft-Bedrock-Edition-ms_CN.mcpack
       
-    - name: Upload APK
+    - name: Upload mcpack
       uses: actions/upload-artifact@v4
       with:
         name: Minecraft-Bedrock-Edition-ms_CN
