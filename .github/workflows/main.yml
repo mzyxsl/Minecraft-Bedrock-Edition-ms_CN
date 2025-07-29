@@ -13,8 +13,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: test1
-      run: zip -r test.zip ./
+    - name: zip Minecraft-Bedrock-Edition-ms_CN
+      run: zip -r Minecraft-Bedrock-Edition-ms_CN.zip ./
 
-    - name: test2
-      run: ls
+    - name: mv .pack
+      run: mv Minecraft-Bedrock-Edition-ms_CN.zip Minecraft-Bedrock-Edition-ms_CN.mcpack
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: Minecraft-Bedrock-Edition-ms_CN
+        path: Minecraft-Bedrock-Edition-ms_CN.*
