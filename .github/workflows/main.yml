@@ -13,5 +13,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: test
+    - name: test1
+      run: cd ..
+
+    - name: test2
       run: ls
