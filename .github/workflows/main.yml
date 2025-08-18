@@ -9,18 +9,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    env:
+      TZ: Asia/Shanghai
     steps:
     - uses: actions/checkout@v4
-
-    - name: Remove .git folder
-      run: rm -rf ./.git
-
-    - name: Remove .github folder
-      run: rm -rf ./.github
-
-    - name: Remove README.md
-      run: rm ./README.md
+    - name: Remove Useless folder
+      run: |
+        rm -rf ./.git
+        rm -rf ./.github
+        rm ./README.md
 
     - name: Pack Minecraft-Bedrock-Edition-ms_CN.zip
       run: zip -r Minecraft-Bedrock-Edition-ms_CN.zip ./
