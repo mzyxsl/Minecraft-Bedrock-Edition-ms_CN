@@ -1,0 +1,32 @@
+name: Releases
+
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v4
+    - name: Remove Useless folder
+      run: |
+        rm -rf ./.git
+        rm -rf ./.github
+        rm ./README.md
+
+    - name: Pack Minecraft-Bedrock-Edition-ms_CN.zip
+      run: zip -r Minecraft-Bedrock-Edition-ms_CN.zip ./
+
+    - name: Rename Minecraft-Bedrock-Edition-ms_CN.mcpack
+      run: mv Minecraft-Bedrock-Edition-ms_CN.zip Minecraft-Bedrock-Edition-ms_CN.mcpack
+
+    - uses: ncipollo/release-action@v1
+      with:
+        allowUpdates: "true"
+        artifacts: "Minecraft-Bedrock-Edition-ms_CN.mcpack"
